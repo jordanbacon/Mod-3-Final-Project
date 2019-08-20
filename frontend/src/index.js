@@ -40,7 +40,7 @@ function movieCard(movie){
 //         ul.append(li)
 //     })
 
-    div.append(p, btn, ul)
+    div.append(p, btn)
 
     main.append(div)
 
@@ -48,7 +48,7 @@ function movieCard(movie){
 
 
 
-
+})
 
 
 
@@ -101,4 +101,4 @@ function movieCard(movie){
 //                 const newli = renderQuestion(question) 
 //             }
 //         })
-//     }
+    // }
