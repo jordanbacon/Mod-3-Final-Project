@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index]
-      resources :movies, only: [:index]
+      resources :movies, only: [:index, :show]
       resources :questions, only: [:index]
     end
   end

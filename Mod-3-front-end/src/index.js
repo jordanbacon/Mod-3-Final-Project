@@ -1,8 +1,8 @@
-const Movies_URL = "http://localhost:3000/api/v1/movies"
-const Questions_URL = "https://localhost:3000/api/v1/questions"
+// const Movies_URL = "http://localhost:3000/api/v1/movies"
+// const Questions_URL = "https://localhost:3000/api/v1/questions"
 
 
-fetch(Movies_URL)
+fetch("http://localhost:3000/api/v1/movies")
     .then(res => res.json())
     .then(movies => {
         movies.forEach(movie => {
@@ -16,5 +16,10 @@ function renderMovies(movie){
 
     ul.innerText = movie.title
     divMovie.append(ul)
-}
 
+    // let lotrInfo = movie.map()
+
+    const lotrArray = movie.map(object => object.title);
+
+
+}
