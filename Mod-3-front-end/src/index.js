@@ -19,7 +19,6 @@ function renderMovies(movie){
 
     // let lotrInfo = movie.map()
 
-    const lotrArray = movie.map(object => object.title);
 
 
 }
