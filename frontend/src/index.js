@@ -5,8 +5,10 @@ const MOVIES_URL = `${BASE_URL}/api/v1/movies`
 const QUESTIONS_URL = `${BASE_URL}/api/v1/questions`
 const rightContainer = document.querySelector("#right-container")
 const rulesIcon = document.querySelector("#rules-icon")
+const playButton = document.querySelector("#play-button")
 
 rulesIcon.addEventListener('click', displayRules)
+playButton.addEventListener('click', playGame)
 
 
 fetch(MOVIES_URL)
@@ -111,6 +113,14 @@ function renderQuestion(question){
         <h3></h3>
         </div>
         `
+      }
+
+    function playGame(){
+        wordInputField.disabled = false
+        wordInputField.style.background = "white"
+        gameContainer.innerHTML = ""
+        startPlay()
+        playButton.style.display = "none"
       }
 
     })

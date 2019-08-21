@@ -14,13 +14,18 @@ ActiveRecord::Schema.define(version: 2019_08_19_203831) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
+    t.string "username"
+    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
     t.string "description"
-    t.string "possible_answer"
+    t.string "possible_answer1"
+    t.string "possible_answer2"
+    t.string "possible_answer3"
+    t.string "possible_answer4"
     t.string "correct_answer"
     t.integer "movie_id"
     t.datetime "created_at", null: false
