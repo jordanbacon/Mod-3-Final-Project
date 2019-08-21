@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Movies</title>
     <link rel="stylesheet" href="index.css">
-    <!-- <link rel="shortcut icon" href="./keyboard.png"> -->
   </head>
   <body>
     <header>
@@ -17,39 +16,120 @@
                 Please select a movie to begin
             </h2>
             <br>
-            <!-- <h2>
-                <span id="choose-lord-of-the-rings"
-                class>Lord of the Rings</span>
-            </h2>
-            <h2>
-                <span id="choose-harry-potter"
-                class>Harry Potter</span>
-            </h2>
-            <h2>
-                <span id="choose-jurassic-park"
-                class>Jurassic Park</span>
-            </h2> -->
         </div>
     </div>
 
-    <main>
-      <!-- Add our movies -->
-    </main>
 
     <div id="flex-container">
-        <div class="flex-item" id="score-div">
-            <h3> YOUR SCORE</h3>
-            <h4> id="score">0</h4>
+        <div class="hidden flex-item" id="score-div">
+          <h3> Your score: </h3>
+          <h3 id="score"></h3>
         </div>
-        <div class="flex-item" id="strikes">
-            <h3> id="strikes-header" class="hidden">STRIKES</h3>
+        <div class="hidden flex-item" id="strikes">
+          <h3> Strikes:  </h3>
+          <h3 id="strikesP"></h3>
+          <h3 id="ten-strikes">5 strikes and you're out :(</h3>
         </div>
-        <div class="flex-item" id="highscore-div">
-            <h3>HIGH SCORE</h3>
-            <h4> id="high-score">max - 500</h4>
+        <div class="hidden flex-item" id="lose">
+          <h3>"Oh no strike 5! Watch the movie again and come back!"</h3>
         </div>
-    </div>
+        <div class="hidden flex-item" id="highscore-div">
+          <h3> High Score: </h3>
+          <h3 id="high-score"></h3>
+        <div>
+      </div>
+
+    <main>
+    </main>
 
     <script src="./src/index.js"></script>
   </body>
-</html>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Trivia</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="src/index.js" charset="utf-8"></script>
+
+  </head>
+  <body>
+    
+
+
+    <div class="ui bottom attached segment pushable">
+      <div id="left-menu" class="ui visible inverted left vertical sidebar menu">
+        <div class="item">
+          <h1>
+            <span class="game-title">Movie Trivia</span>
+          </h1>
+        </div>
+        <a id="user-icon" class="item">
+          Login to Play
+        </a>
+        <a id="film-icon" class="item">
+            <i class="film icon"></i>
+          Movies
+        </a>
+        <a id="rules-icon" class="item">
+          <i class="info icon"></i>
+          Rules
+        </a>
+        <a id="leaderboard-icon" class="item">
+          <i class="trophy icon"></i>
+          Stats
+        </a>
+        <div class="item" id="footer">
+          Created by Jordan Bacon & Syed Imadi<br>© 2019
+        </div>
+      </div>
+      
+      <main>
+      </main>
+
+      <div id="pusher" class="pusher">
+
+        <div id="left-container">
+            <div class="ui blue message floated segment" id ="game-clock-div">Time: <span id="game-clock">00:00</span></div>
+            <div class="ui blue message floated segment" id ="game-score-div">Score: <span id="game-score">0</span></div>
+            <div class="ui segment" id="game-container"></div>
+            <button id="play-button" class="ui button teal" disabled="true"><i class="icon play"></i>PLAY</button>
+        </div>
+        
+
+        <!-- login form
+        <div id="right-container" class="column">
+          <div class="ui input" id="login-form-div">
+          <form autocomplete="off" id="login-form" class="" action="index.html" method="post">
+            <h3>Login to Play:</h3>
+            <input id="login-field" type="text" name="" value="" placeholder="username">
+            <br><br>
+            <input type="submit">
+            <br><br>
+          </form>
+          </div>
+        </div> -->
+
+      </div>
+
+
+    </div>
+
+    <main>
+        <!-- {
+          display: block;
+          margin-left: auto;
+          margin-right: auto } -->
+        <!-- .center {
+          margin: auto;} -->
+<!-- .right {
+  position: absolute; -->
+    </main>
+
+
+  </body>
+  </html>

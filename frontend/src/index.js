@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
 const BASE_URL = "http://localhost:3000"
 const MOVIES_URL = `${BASE_URL}/api/v1/movies`
 const QUESTIONS_URL = `${BASE_URL}/api/v1/questions`
+const rightContainer = document.querySelector("#right-container")
+const rulesIcon = document.querySelector("#rules-icon")
+
+rulesIcon.addEventListener('click', displayRules)
+
 
 fetch(MOVIES_URL)
 .then(res => res.json())
@@ -91,4 +96,21 @@ function renderQuestion(question){
     //             const newli = renderQuestion(question) 
     //     })
     }
-})
+
+    function displayRules() {
+        rightContainer.innerHTML = ''
+        rightContainer.innerHTML =
+        `<div class="ui raised segment">
+        <a class="ui blue ribbon label">Rules</a>
+        <h2>Welcome Movie Buffs!</h2>
+        <p>Think you know your movies? Choose a movie and let's see! </p>
+        <p><b>SCORING</b><br>
+        You’ll score one point for every question answered correctly. 
+        </p>
+        <p>If you're having a rough time, you get ONE free pass per game. Use it wisely! </p>
+        <h3></h3>
+        </div>
+        `
+      }
+
+    })

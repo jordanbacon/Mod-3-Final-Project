@@ -11,7 +11,7 @@ Movie.destroy_all
 Question.destroy_all
 
 u1 = User.create(name: "Alpha")
-u2 = User.create(name: "Beta")
+u2 = User.create(name: "Bravo")
 
 m1 = Movie.create(title: "Lord of the Rings")
 m2 = Movie.create(title: "Harry Potter")
