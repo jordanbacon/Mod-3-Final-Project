@@ -13,7 +13,7 @@ let timer;
 
 
 
-fetch("http://localhost:3000/api/v1/movies/31")
+fetch("http://localhost:3000/api/v1/movies/1")
     .then(res => res.json())
     .then(lotr => {
         lotr.questions.forEach(question => {
@@ -92,7 +92,7 @@ fetch("http://localhost:3000/api/v1/movies/31")
 
     function loadQuestion(){
 
-        counter = 5;
+        counter = 20;
         timer = setInterval(countDown, 1000)
         let question = lotrQuestions[currentQuestion].question;
         let choices = lotrQuestions[currentQuestion].choices;
