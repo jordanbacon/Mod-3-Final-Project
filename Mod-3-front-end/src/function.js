@@ -11,6 +11,8 @@ let timer;
 
 
 
+
+
 fetch("http://localhost:3000/api/v1/movies/31")
     .then(res => res.json())
     .then(lotr => {
@@ -51,9 +53,22 @@ fetch("http://localhost:3000/api/v1/movies/31")
        
 
     ]
+
+    
+
     function nextQuestion(){
-        currentQuestion++
-        loadChoices()
+
+        const questionDone = (lotrQuestions.length - 1) === currentQuestion
+
+        if (questionDone){
+            console.log("Over")
+            showScore()
+        }else {
+            currentQuestion++
+            loadQuestion()
+
+        }
+
     }
 
     function timesUp(){
@@ -79,26 +94,80 @@ fetch("http://localhost:3000/api/v1/movies/31")
 
         counter = 5;
         timer = setInterval(countDown, 1000)
-        const question = lotrQuestions[currentQuestion].question;
-        const choices = lotrQuestions[currentQuestion].choices;
-
+        let question = lotrQuestions[currentQuestion].question;
+        let choices = lotrQuestions[currentQuestion].choices;
+        // debugger
         $('#time').html('Timer: ' + counter);
         $('#game').html(`<h4>${question}</h4>
             ${loadChoices(choices)}
+            ${questionsLeft()}
         
         `)
     }
 
     function loadChoices(choices){
+        // debugger
         let result = '';
+
 
         for (let i = 0; i < choices.length; i++){
             result +=`<p class="choice" data-answer="${choices[i]}">${choices[i]}</p>`;
         }
         return result
+
+
+    }
+    $(document).on("click", '.choice', function(){
+        clearInterval(timer)
+        const chosenAnswer = $(this).attr('data-answer')
+        const rightAnswer = lotrQuestions[currentQuestion].answer
+
+        if (rightAnswer == chosenAnswer){
+            score++;
+            console.log("wins")
+            nextQuestion()
+
+        }else{
+            lost++;
+            console.log("lost")
+            nextQuestion()
+        }
+    })
+
+    function showScore(){
+        const results = `
+            <p> You have a score of: ${score} </p>
+            <button class= "btn btn-primary" id="reset"> Try again </button>
+        `
+
+        $('#game').html(results)
     }
 
-    loadQuestion()
+    $(document).on('click', '#reset', function(){
+        counter = 5;
+        currentQuestion = 0;
+        score = 0;
+        lost = 0;
+        timer = null;
+
+        loadQuestion()
+    })
+
+    function questionsLeft(){
+        const questionLeft = lotrQuestions.length - (currentQuestion + 1)
+        const totalQuestions = lotrQuestions.length
+
+        return `Questions Left: ${questionLeft}/${totalQuestions}`
+    }
+
+
+    // loadQuestion()
+
+    $('#start').click(function(){
+        $('#start').remove()
+        $('#time').html(counter)
+        loadQuestion()
+    })
 
 
 })
