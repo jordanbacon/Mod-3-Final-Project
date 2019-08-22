@@ -59,11 +59,17 @@ Question.create(description: "Who Is Luke and Leia’s mother?", possible_answer
 Question.create(description: "What was the name of Jack Sparrow’s ship prior to the events of the first movie? ", possible_answer1: "a. The Black Pearl", possible_answer2: "b. HMS Interceptor", possible_answer3: "c. Dying Gull", possible_answer4: "d. Hai Peng", correct_answer: "a. The Black Pearl", movie_id: m5.id)
 Question.create(description: "What was the name of Will Turner’s (Orlando Bloom) love interest in the movie?", possible_answer1: "a. Elizabeth", possible_answer2: "b. Giselle", possible_answer3: "c. Anamaria", possible_answer4: "d. Scarlett", correct_answer: "a. Elizabeth", movie_id: m5.id)
 Question.create(description: "Who took control of the Black Pearl in the first movie?", possible_answer1: "a. Joshamee Gibbs", possible_answer2: "b. Sao Feng", possible_answer3: "c. Hector Barbosa", possible_answer4: "d. Blackbeard", correct_answer: " c. Hector Barbosa", movie_id: m5.id)
+Question.create(description: "Who took control of the Black Pearl in the first movie?", possible_answer1: "a. Joshamee Gibbs", possible_answer2: "b. Sao Feng", possible_answer3: "c. Hector Barbosa", possible_answer4: "d. Blackbeard", correct_answer: " c. Hector Barbosa", movie_id: m5.id)
+Question.create(description: "Who took control of the Black Pearl in the first movie?", possible_answer1: "a. Joshamee Gibbs", possible_answer2: "b. Sao Feng", possible_answer3: "c. Hector Barbosa", possible_answer4: "d. Blackbeard", correct_answer: " c. Hector Barbosa", movie_id: m5.id)
+
 # Question.create(description: "", possible_answer1: "a. ", possible_answer2: "b. ", possible_answer3: "c. ", possible_answer4: "d. ", correct_answer: " ", movie_id: m5.id)
 # Question.create(description: "", possible_answer1: "a. ", possible_answer2: "b. ", possible_answer3: "c. ", possible_answer4: "d. ", correct_answer: " ", movie_id: m5.id)
 
 Question.create(description: "Which of the following is not one of the Infinity Stones?", possible_answer1: "a. Mind Stone", possible_answer2: "b. Space Stone", possible_answer3: "c. Gravity Stone", possible_answer4: "d. Power Stone", correct_answer: "c. Gravity Stone", movie_id: m6.id)
 Question.create(description: "What city did Black Panther mainly take place in?", possible_answer1: "a. Kathmandu", possible_answer2: "b. Sokovia", possible_answer3: "c. Wakanda", possible_answer4: "d. Johannesburg", correct_answer: "c. Wakanda", movie_id: m6.id)
 Question.create(description: "What planet was Thanos born in?", possible_answer1: "a. Xandar", possible_answer2: "b. Titan", possible_answer3: "c. Vormir", possible_answer4: "d. Centauri Prime", correct_answer: "b. Titan", movie_id: m6.id)
+Question.create(description: "What planet was Thanos born in?", possible_answer1: "a. Xandar", possible_answer2: "b. Titan", possible_answer3: "c. Vormir", possible_answer4: "d. Centauri Prime", correct_answer: "b. Titan", movie_id: m6.id)
+Question.create(description: "What planet was Thanos born in?", possible_answer1: "a. Xandar", possible_answer2: "b. Titan", possible_answer3: "c. Vormir", possible_answer4: "d. Centauri Prime", correct_answer: "b. Titan", movie_id: m6.id)
+
 # Question.create(description: "", possible_answer1: "a. ", possible_answer2: "b. ", possible_answer3: "c. ", possible_answer4: "d. ", correct_answer: " ", movie_id: m6.id)
 # Question.create(description: "", possible_answer1: "a. ", possible_answer2: "b. ", possible_answer3: "c. ", possible_answer4: "d. ", correct_answer: " ", movie_id: m6.id)

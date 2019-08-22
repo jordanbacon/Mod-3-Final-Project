@@ -12,8 +12,18 @@
   <div class="container">
     <div class="jumbotron"> 
       <h1>Movie Trivia</h1>
-        <button class="btn btn-primary" id="start"> Start Quiz</button>
-      
+        <button class="btn btn-primary dropdown-toggle" id="start" data-toggle="dropdown"> Pick a Movie<span class="caret"></span></button>
+        <ul id="change_chart" class="dropdown-menu" role="menu" aria-labelledby="start">
+            <li id = "movie1" role="presentation"><a id = "movie1" role="menuitem" tabindex="-1" >Lord of the Rings</a></li>
+            <li id= "movie2" role="presentation"><a id= "movie2" role="menuitem" tabindex="-1" href="#">Harry Potter</a></li>
+            <li id= "movie3" role="presentation"><a id= "movie3" role="menuitem" tabindex="-1" href="#">Jurassic Park</a></li>
+            <li id= "movie4" role="presentation"><a id= "movie4" role="menuitem" tabindex="-1" href="#">Star Wars</a></li>
+            <li id= "movie5" role="presentation"><a id= "movie5" role="menuitem" tabindex="-1" href="#">Pirates of the Carribean</a></li>
+            <li id= "movie6" role="presentation"><a id= "movie6" role="menuitem" tabindex="-1" href="#">Avengers</a></li>
+
+
+
+        </ul>
     </div>
 
     <h2 id="time"></h2>
