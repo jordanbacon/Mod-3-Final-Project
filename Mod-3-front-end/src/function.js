@@ -1,37 +1,105 @@
-// function lotrData(){
-//     fetch("http://localhost:3000/api/v1/movies/31")
-//     .then(res => res.json())
-//     .then(lotr => {
-//         lotr.forEach(question => {
-//             lotrInfo(question)
-//             ques1 = description
-//         })
-//     })
-// }
-let questionArr = []
-let choicesArr = []
-let correctAnswer = []
+let lotrquestionArr = []
+let lotrchoicesArr = []
+let lotrcorrectAnswer = []
+let lotrQuestions 
+
+let counter = 5;
+let currentQuestion = 0;
+let score = 0;
+let lost = 0;
+let timer;
+
 
 
 fetch("http://localhost:3000/api/v1/movies/31")
     .then(res => res.json())
     .then(lotr => {
         lotr.questions.forEach(question => {
-            questionArr.push(question.description)
-            choicesArr.push(question.possible_answer1, question.possible_answer2, question.possible_answer3, question.possible_answer4)
-            correctAnswer.push(question.correct_answer)
+            lotrquestionArr.push(question.description)
+            lotrchoicesArr.push(question.possible_answer1, question.possible_answer2, question.possible_answer3, question.possible_answer4)
+            lotrcorrectAnswer.push(question.correct_answer)
+            
         })
-})
 
-let question1 = questionArr.slice(0,1)
-let choices1 = choicesArr.slice(0,4)
-let answer1 = correctAnswer.slice(0,1)
+    lotrQuestions = [
+        {
+            question: lotrquestionArr.slice(0,1),
+            choices: lotrchoicesArr.slice(0,4),
+            answer: lotrcorrectAnswer.slice(0,1)
+        },
+        {
+            question: lotrquestionArr.slice(1,2),
+            choices: lotrchoicesArr.slice(4,8),
+            answer: lotrcorrectAnswer.slice(1,2)
+        },
+        {
+            question: lotrquestionArr.slice(2,3),
+            choices: lotrchoicesArr.slice(8,12),
+            answer: lotrcorrectAnswer.slice(2,3)
+        },
+        {
+            question: lotrquestionArr.slice(3,4),
+            choices: lotrchoicesArr.slice(12,16),
+            answer: lotrcorrectAnswer.slice(3,4)
+        },
+        {
+            question: lotrquestionArr.slice(4,5),
+            choices: lotrchoicesArr.slice(16,20),
+            answer: lotrcorrectAnswer.slice(4,5)
+        },
 
-const lotrQuestions = [
-    {
-        question: question1[0],
-        choices: choices1,
-        answer: answer1
+       
+
+    ]
+    function nextQuestion(){
+        currentQuestion++
+        loadChoices()
     }
-]
+
+    function timesUp(){
+        clearInterval(timer)
+        lost++
+
+        nextQuestion()
+
+    }
+    
+    function countDown(){
+        counter--;
+
+        $('#time').html('Timer: ' + counter);
+
+        if (counter === 0){
+            timesUp();
+
+        }
+    }
+
+    function loadQuestion(){
+
+        counter = 5;
+        timer = setInterval(countDown, 1000)
+        const question = lotrQuestions[currentQuestion].question;
+        const choices = lotrQuestions[currentQuestion].choices;
+
+        $('#time').html('Timer: ' + counter);
+        $('#game').html(`<h4>${question}</h4>
+            ${loadChoices(choices)}
+        
+        `)
+    }
+
+    function loadChoices(choices){
+        let result = '';
+
+        for (let i = 0; i < choices.length; i++){
+            result +=`<p class="choice" data-answer="${choices[i]}">${choices[i]}</p>`;
+        }
+        return result
+    }
+
+    loadQuestion()
+
+
+})
 
