@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Movie Madness Trivia! 
 
-Things you may want to cover:
+DESCRIPTION 
+Welcome to Movie Madness Trivia! Choose a movie and receive trivia questions. You have a set amount of time to answer the questions, so take some time, but not too much! 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+INSTALL INSTRUCTIONS
+Clone down this repo. Run "rake db:migrate" then "rake db:seed." Open up a rails server using "rails s" and visit your local host in your browser. 
