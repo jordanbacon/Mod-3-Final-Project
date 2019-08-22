@@ -1,9 +1,9 @@
-let lotrquestionArr = []
-let lotrchoicesArr = []
-let lotrcorrectAnswer = []
-let lotrQuestions 
+let quistionArr = []
+let choicesArr = []
+let correctAnswer = []
+let triviaQuestions 
 
-let counter = 5;
+let counter = 15;
 let currentQuestion = 0;
 let score = 0;
 let lost = 0;
@@ -17,37 +17,37 @@ fetch("http://localhost:3000/api/v1/movies/31")
     .then(res => res.json())
     .then(lotr => {
         lotr.questions.forEach(question => {
-            lotrquestionArr.push(question.description)
-            lotrchoicesArr.push(question.possible_answer1, question.possible_answer2, question.possible_answer3, question.possible_answer4)
-            lotrcorrectAnswer.push(question.correct_answer)
+            quistionArr.push(question.description)
+            choicesArr.push(question.possible_answer1, question.possible_answer2, question.possible_answer3, question.possible_answer4)
+            correctAnswer.push(question.correct_answer)
             
         })
 
-    lotrQuestions = [
+    triviaQuestions = [
         {
-            question: lotrquestionArr.slice(0,1),
-            choices: lotrchoicesArr.slice(0,4),
-            answer: lotrcorrectAnswer.slice(0,1)
+            question: quistionArr.slice(0,1),
+            choices: choicesArr.slice(0,4),
+            answer: correctAnswer.slice(0,1)
         },
         {
-            question: lotrquestionArr.slice(1,2),
-            choices: lotrchoicesArr.slice(4,8),
-            answer: lotrcorrectAnswer.slice(1,2)
+            question: quistionArr.slice(1,2),
+            choices: choicesArr.slice(4,8),
+            answer: correctAnswer.slice(1,2)
         },
         {
-            question: lotrquestionArr.slice(2,3),
-            choices: lotrchoicesArr.slice(8,12),
-            answer: lotrcorrectAnswer.slice(2,3)
+            question: quistionArr.slice(2,3),
+            choices: choicesArr.slice(8,12),
+            answer: correctAnswer.slice(2,3)
         },
         {
-            question: lotrquestionArr.slice(3,4),
-            choices: lotrchoicesArr.slice(12,16),
-            answer: lotrcorrectAnswer.slice(3,4)
+            question: quistionArr.slice(3,4),
+            choices: choicesArr.slice(12,16),
+            answer: correctAnswer.slice(3,4)
         },
         {
-            question: lotrquestionArr.slice(4,5),
-            choices: lotrchoicesArr.slice(16,20),
-            answer: lotrcorrectAnswer.slice(4,5)
+            question: quistionArr.slice(4,5),
+            choices: choicesArr.slice(16,20),
+            answer: correctAnswer.slice(4,5)
         },
 
        
@@ -58,10 +58,9 @@ fetch("http://localhost:3000/api/v1/movies/31")
 
     function nextQuestion(){
 
-        const questionDone = (lotrQuestions.length - 1) === currentQuestion
+        const questionDone = (triviaQuestions.length - 1) === currentQuestion
 
         if (questionDone){
-            console.log("Over")
             showScore()
         }else {
             currentQuestion++
@@ -92,11 +91,10 @@ fetch("http://localhost:3000/api/v1/movies/31")
 
     function loadQuestion(){
 
-        counter = 5;
+        counter = 15;
         timer = setInterval(countDown, 1000)
-        let question = lotrQuestions[currentQuestion].question;
-        let choices = lotrQuestions[currentQuestion].choices;
-        // debugger
+        let question = triviaQuestions[currentQuestion].question;
+        let choices = triviaQuestions[currentQuestion].choices;
         $('#time').html('Timer: ' + counter);
         $('#game').html(`<h4>${question}</h4>
             ${loadChoices(choices)}
@@ -106,7 +104,6 @@ fetch("http://localhost:3000/api/v1/movies/31")
     }
 
     function loadChoices(choices){
-        // debugger
         let result = '';
 
 
@@ -120,16 +117,14 @@ fetch("http://localhost:3000/api/v1/movies/31")
     $(document).on("click", '.choice', function(){
         clearInterval(timer)
         const chosenAnswer = $(this).attr('data-answer')
-        const rightAnswer = lotrQuestions[currentQuestion].answer
+        const rightAnswer = triviaQuestions[currentQuestion].answer
 
         if (rightAnswer == chosenAnswer){
             score++;
-            console.log("wins")
             nextQuestion()
 
         }else{
             lost++;
-            console.log("lost")
             nextQuestion()
         }
     })
@@ -144,7 +139,7 @@ fetch("http://localhost:3000/api/v1/movies/31")
     }
 
     $(document).on('click', '#reset', function(){
-        counter = 5;
+        counter = 15;
         currentQuestion = 0;
         score = 0;
         lost = 0;
@@ -154,14 +149,11 @@ fetch("http://localhost:3000/api/v1/movies/31")
     })
 
     function questionsLeft(){
-        const questionLeft = lotrQuestions.length - (currentQuestion + 1)
-        const totalQuestions = lotrQuestions.length
+        const questionLeft = triviaQuestions.length - (currentQuestion + 1)
+        const totalQuestions = triviaQuestions.length
 
         return `Questions Left: ${questionLeft}/${totalQuestions}`
     }
-
-
-    // loadQuestion()
 
     $('#start').click(function(){
         $('#start').remove()
@@ -171,4 +163,165 @@ fetch("http://localhost:3000/api/v1/movies/31")
 
 
 })
+
+// fetch("http://localhost:3000/api/v1/movies/31")
+//     .then(res => res.json())
+//     .then(lotr => {
+//         lotr.questions.forEach(question => {
+//             quistionArr.push(question.description)
+//             choicesArr.push(question.possible_answer1, question.possible_answer2, question.possible_answer3, question.possible_answer4)
+//             correctAnswer.push(question.correct_answer)
+            
+//         })
+
+//     triviaQuestions = [
+//         {
+//             question: quistionArr.slice(0,1),
+//             choices: choicesArr.slice(0,4),
+//             answer: correctAnswer.slice(0,1)
+//         },
+//         {
+//             question: quistionArr.slice(1,2),
+//             choices: choicesArr.slice(4,8),
+//             answer: correctAnswer.slice(1,2)
+//         },
+//         {
+//             question: quistionArr.slice(2,3),
+//             choices: choicesArr.slice(8,12),
+//             answer: correctAnswer.slice(2,3)
+//         },
+//         {
+//             question: quistionArr.slice(3,4),
+//             choices: choicesArr.slice(12,16),
+//             answer: correctAnswer.slice(3,4)
+//         },
+//         {
+//             question: quistionArr.slice(4,5),
+//             choices: choicesArr.slice(16,20),
+//             answer: correctAnswer.slice(4,5)
+//         },
+
+       
+
+//     ]
+
+    
+
+//     function nextQuestion(){
+
+//         const questionDone = (triviaQuestions.length - 1) === currentQuestion
+
+//         if (questionDone){
+//             console.log("Over")
+//             showScore()
+//         }else {
+//             currentQuestion++
+//             loadQuestion()
+
+//         }
+
+//     }
+
+//     function timesUp(){
+//         clearInterval(timer)
+//         lost++
+
+//         nextQuestion()
+
+//     }
+    
+//     function countDown(){
+//         counter--;
+
+//         $('#time').html('Timer: ' + counter);
+
+//         if (counter === 0){
+//             timesUp();
+
+//         }
+//     }
+
+//     function loadQuestion(){
+
+//         counter = 15;
+//         timer = setInterval(countDown, 1000)
+//         let question = triviaQuestions[currentQuestion].question;
+//         let choices = triviaQuestions[currentQuestion].choices;
+//         // debugger
+//         $('#time').html('Timer: ' + counter);
+//         $('#game').html(`<h4>${question}</h4>
+//             ${loadChoices(choices)}
+//             ${questionsLeft()}
+        
+//         `)
+//     }
+
+//     function loadChoices(choices){
+//         // debugger
+//         let result = '';
+
+
+//         for (let i = 0; i < choices.length; i++){
+//             result +=`<p class="choice" data-answer="${choices[i]}">${choices[i]}</p>`;
+//         }
+//         return result
+
+
+//     }
+//     $(document).on("click", '.choice', function(){
+//         clearInterval(timer)
+//         const chosenAnswer = $(this).attr('data-answer')
+//         const rightAnswer = triviaQuestions[currentQuestion].answer
+
+//         if (rightAnswer == chosenAnswer){
+//             score++;
+//             console.log("wins")
+//             nextQuestion()
+
+//         }else{
+//             lost++;
+//             console.log("lost")
+//             nextQuestion()
+//         }
+//     })
+
+//     function showScore(){
+//         const results = `
+//             <p> You have a score of: ${score} </p>
+//             <button class= "btn btn-primary" id="reset"> Try again </button>
+//         `
+
+//         $('#game').html(results)
+//     }
+
+//     $(document).on('click', '#reset', function(){
+//         counter = 15;
+//         currentQuestion = 0;
+//         score = 0;
+//         lost = 0;
+//         timer = null;
+
+//         loadQuestion()
+//     })
+
+//     function questionsLeft(){
+//         const questionLeft = triviaQuestions.length - (currentQuestion + 1)
+//         const totalQuestions = triviaQuestions.length
+
+//         return `Questions Left: ${questionLeft}/${totalQuestions}`
+//     }
+
+
+//     // loadQuestion()
+
+//     $('#start').click(function(){
+//         $('#start').remove()
+//         $('#time').html(counter)
+//         loadQuestion()
+//     })
+
+
+// })
+
+
 
